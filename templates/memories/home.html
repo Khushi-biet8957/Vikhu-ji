@@ -1,0 +1,203 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Love Story ❤️</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <div class="hearts" id="hearts"></div>
+
+    <nav class="navbar">
+      <a href="#home" class="logo">Our Story ♡</a>
+      <a href="#letter" class="nav-link">A Letter For You 💌</a>
+    </nav>
+
+    <header class="hero" id="home">
+      <p class="eyebrow">A LITTLE WEBSITE, A LOT OF LOVE</p>
+      <h1>
+        Happy Anniversary,<br />
+        <span>My Love ❤️{Vikhu ji}</span>
+      </h1>
+      <p class="hero-text">
+        Every love story is beautiful, but ours is my favourite.
+      </p>
+      <a href="#memories" class="main-btn">Open My Heart 💗</a>
+      <div class="hero-heart">♥</div>
+      <p class="small-note">Made with love, just for you</p>
+    </header>
+
+    <section class="section" id="memories">
+      <p class="eyebrow">LITTLE MOMENTS, BIG FEELINGS</p>
+      <h2>Our Beautiful Memories 📸</h2>
+      <p class="section-intro">
+        Every picture holds a little piece of my heart.
+      </p>
+
+      <div class="gallery">
+        <article class="photo-card">
+          <img
+            src="{% static 'images/couple1.png' %}"
+            alt="Our first special memory"
+          />
+          <h3>My Favourite Memory 💕</h3>
+          <p>A moment I want to remember forever.</p>
+        </article>
+
+        <article class="photo-card">
+          <img
+            src="{% static 'images/couple2.jpg' %}"
+            alt="A happy moment together"
+          />
+          <h3>My Happy Place 🫶</h3>
+          <p>Some moments become our favourite stories.</p>
+        </article>
+
+        <article class="photo-card">
+          <img
+            src="{% static 'images/couple3.jpg' %}"
+            alt="Our beautiful memory"
+          />
+          <h3>Just Us ❤️</h3>
+          <p>One photo, a thousand feelings.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section story-section" id="story">
+      <p class="eyebrow">FROM THEN TO FOREVER</p>
+      <h2>Our Love Story 💑</h2>
+
+      <div class="timeline">
+        {% for memory in memories %}
+        <article class="timeline-item">
+          <span class="timeline-dot">♥</span>
+          <div class="timeline-card">
+            <p class="date">{{ memory.date }}</p>
+            <h3>{{ memory.title }}</h3>
+            <p>{{ memory.description }}</p>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="section reasons-section" id="reasons">
+      <p class="eyebrow">TEN LITTLE REMINDERS</p>
+      <h2>10 Reasons I Love You 💗</h2>
+      <p class="section-intro">Tap on each card to open a little message.</p>
+
+      <div class="reasons-grid">
+        {% for reason in reasons %}
+        <button class="reason-card" type="button">
+          <span class="reason-number">{{ forloop.counter }}</span>
+          <span class="reason-title">Tap to open 💌</span>
+          <span class="reason-message">{{ reason }}</span>
+        </button>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="letter-section" id="letter">
+      <div class="letter-box">
+        <p class="eyebrow">SOMETHING FROM MY HEART</p>
+        <h2>A Letter Just for You 💌</h2>
+        <p class="section-intro">I have something special to tell you...</p>
+
+        <button class="main-btn" id="openLetter" type="button">
+          Open Your Letter 💌
+        </button>
+
+        <div class="love-letter" id="loveLetter" hidden>
+          <div class="letter-heart">♥</div>
+          <h3>To My Favourite Person, ❤️</h3>
+          <p>
+            Mere Pyaare Vikku Ji ❤️
+            <br />
+            Happy 1st Anniversary, meri jaan! 💗 Dekhte hi dekhte humein saath
+            ek saal ho gaya. Aap meri life ke bahut special insaan hain. Aapke
+            saath bitaya hua har chhota sa moment mere liye bahut precious hai.
+            ❤️ Kabhi-kabhi main apni feelings words mein express nahi kar paati,
+            lekin aap mere liye kitne special hain, ye main hamesha chahti hoon
+            ki aap samjhein. 🫶 Aapki smile, aapki baatein aur aapka saath mere
+            chehre par smile le aata hai. Main chahti hoon ki hum aise hi
+            ek-doosre ke saath khush rahein aur bahut saari beautiful memories
+            banayein. 💕 Thank you meri life ka itna pyaara hissa banne ke liye.
+            Aap mere liye aaj bhi utne hi special hain, jitne pehle din the.
+            ❤️<br />
+            Happy First Anniversary, Vikku Ji! 💋<br />
+            Hamesha aapki, Aapki wali ❤️💌
+          </p>
+
+          <p>{% comment %}</p>
+          <p>
+            I may not always find the perfect words to express my feelings, but
+            I hope you know how special you are to me.
+          </p>
+          <p>
+            Thank you for being a part of my life and for giving me so many
+            beautiful memories. Every little moment with you means something to
+            me.
+          </p>
+          <p>
+            Today, I just want to remind you that you hold a very special place
+            in my heart. I hope we create many more beautiful memories together.
+          </p>
+          <p class="signature">With all my love, Yours ❤️</p>
+          {% endcomment %}
+        </div>
+      </div>
+    </section>
+
+    <section class="final-section" id="surprise">
+      <p class="eyebrow">ONE LAST LITTLE SURPRISE</p>
+      <h2>And My Favourite Part Is...</h2>
+      <p>Having you as a part of my story. 🥹❤️</p>
+
+      <button class="main-btn" id="surpriseButton" type="button">
+        One Last Surprise 🎁
+      </button>
+
+      <div id="finalMessage" hidden>
+        <div class="big-heart">♥</div>
+        {% comment %} <h2>You're My Favourite Person! 💖</h2>
+        <p>Happy Anniversary, My Love!</p>
+        <p>Here's to more smiles, memories and beautiful days together. 🫶</p>
+        <p class="signature">Made with love, just for you ❤️</p> {% endcomment %}
+            <p class="eyebrow">JUST FOR YOU, VIKhU JI</p>
+
+    <h2>Happy 1st Anniversary! ❤️</h2>
+
+    <h3 class="special-message">
+        Vikhu Ji, aap mere favourite person hain. 🥹💗
+    </h3>
+
+    <p>
+        Aapke saath bitaya hua har pal mere liye special hai.
+        Thank you meri life mein hone ke liye. ❤️
+    </p>
+
+    <p>
+        Ek saal ki beautiful memories, aur aage bahut saari
+        khushiyan... bas aapka saath yun hi bana rahe. 🫶
+    </p>
+
+    <p class="signature">
+        Hamesha aapki, Aapki wali chutkila❤️💌
+    </p>
+
+    <div class="big-heart">💕</div>
+</div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Made with ♡ and a little bit of code.</p>
+      <p>Our story, our memories, our love. 💗</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>
